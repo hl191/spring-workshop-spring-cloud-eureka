@@ -28,14 +28,14 @@ With the Eureka server up and running, it is now time to register our applicatio
 1. Add the following line to `build-containers.{bat|sh}`:
 
 ```shell
-docker build -t getting-things-done/discovery-service ../gtd-discovery-service
+docker build -t getting-things-done/eureka/discovery-service ../gtd-discovery-service
 ```
 
 2. Add the following lines to `docker-compose.yaml`:
 
 ```yaml
   discovery-service:
-    image: getting-things-done/discovery-service
+    image: getting-things-done/eureka/discovery-service
     mem_limit: 256m
     ports:
       - "127.0.0.1:8761:8761"

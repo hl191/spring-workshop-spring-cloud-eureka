@@ -22,7 +22,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   command-service:
-    image: getting-things-done/command-service
+    image: getting-things-done/eureka/command-service
     mem_limit: 256m
     ports:
       - "8089:8089"
@@ -31,7 +31,7 @@ services:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       SPRING_KAFKA_PRODUCER_BOOTSTRAP_SERVERS: kafka:9092
   query-service:
-    image: getting-things-done/query-service
+    image: getting-things-done/eureka/query-service
     mem_limit: 256m
     ports:
       - "8090:8090"
