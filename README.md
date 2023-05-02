@@ -18,7 +18,7 @@ from within the root folder. This builds all the modules; the fat JARs for every
 
 ### Building Docker images
 
-The source material that you're given consists of a `docker` folder. You'll find all the necessary docker-compose scripts for various stages of the workshop in that folder. To make sure that you've got all the required Docker images present on your system, we recommend that you start up the baseline scenario. This can be done by issuing
+The source material that you're given features a `docker` folder. You'll find all the scripts for the assignment in that folder. To make sure that you've got all the required Docker images present on your system, we recommend that you start up the baseline scenario. This can be done by issuing
 
 *Linux / MacOS*
 
@@ -51,8 +51,6 @@ Both services expose an OpenAPI UI.
 ![OpenAPI UI for Command Service](static/openapi-ui-command-service.png)
 
 The API specification is minimalistic. Nevertheless, play around with the OpenAPI UI a bit to get a feel for what we'll be working on as part of the workshop.
-
-We also provide docker-compose scripts that start the necessary infrastructure only (e.g. Kafka), so that you're free to launch your own application module from within the IDE.
 
 If you have any questions or run into problems, please don't hesitate to ask for help.
 
