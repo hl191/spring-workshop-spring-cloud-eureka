@@ -46,7 +46,7 @@ Please make sure that both services launch correctly and respond with their publ
 Both services expose an OpenAPI UI.
 
 * Click [here](http://localhost:8089/openapi/swagger-ui.html) for opening the OpenAPI UI for the command service.
-* Click [here](http://localhost:8090/openapi/swagger-ui.html) for opening the OpenAPI UI for the discovery service.
+* Click [here](http://localhost:8090/openapi/swagger-ui.html) for opening the OpenAPI UI for the query service.
 
 ![OpenAPI UI for Command Service](static/openapi-ui-command-service.png)
 
