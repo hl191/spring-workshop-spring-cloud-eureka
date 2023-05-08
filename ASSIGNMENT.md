@@ -6,14 +6,14 @@ Your task is to implement a Discovery Service using the Spring Cloud component _
 
 ## Task #1: Create a Spring Boot application for the Discovery Service
 
-1. Go to `start.spring.io` and create a new Maven project using the following coordinates:
+1. Go to [start.spring.io](https://start.spring.io) and create a new Maven project using the following coordinates:
 
 * Group ID: `workshop.spring.discovery`
 * Artifact ID: `gtd-discovery-service` (or choose your own)
 
 2. What dependencies do you need to turn this Spring Boot application into a fully-fledged Spring Cloud Netflix Eureka server? Add the necessary dependencies to the build.
 
-3. Generate the Maven `pom.xml` using the Spring Initialzr. Copy the resulting code into the local checkout of this repository and integrate it with the Maven build (cf. `<modules>` section of the parent POM).
+3. Generate the Maven `pom.xml` using the Spring Initializr. Copy the resulting code into the local checkout of this repository and integrate it with the Maven build (cf. `<modules>` section of the parent POM).
 
 4. Enable the Eureka server component for your Spring Boot application.
 
@@ -25,13 +25,31 @@ Your task is to implement a Discovery Service using the Spring Cloud component _
 
 With the Eureka server up and running, it is now time to register our application services with it. Before we do so, we need to run the Eureka server as part of our local Docker setup. This means that you need to extend the `build-containers.{bat|sh}` script as well as the `docker-compose.yaml` file.
 
-1. Add the following line to `build-containers.{bat|sh}`:
+1. Add the following `Dockerfile` to the root of the Discovery Service's Maven module.
+
+```dockerfile
+FROM eclipse-temurin:17.0.7_7-jre-jammy
+
+WORKDIR /opt/app
+
+RUN adduser --system -shell /usr/sbin/nologin --group javauser
+
+COPY target/gtd-discovery-service-1.0.0-SNAPSHOT.jar app.jar
+
+RUN chown -R javauser:javauser .
+
+USER javauser
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+
+2. Add the following line to `build-containers.{bat|sh}`:
 
 ```shell
 docker build -t getting-things-done/eureka/discovery-service ../gtd-discovery-service
 ```
 
-2. Add the following lines to `docker-compose.yaml`:
+3. Add the following lines to `docker-compose.yaml`:
 
 ```yaml
   discovery-service:
