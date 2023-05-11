@@ -30,6 +30,7 @@ services:
       SERVER_PORT: 8089
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       SPRING_KAFKA_PRODUCER_BOOTSTRAP_SERVERS: kafka:9092
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service:8761/eureka/
   query-service:
     image: getting-things-done/eureka/query-service
     mem_limit: 256m
@@ -38,3 +39,11 @@ services:
     environment:
       SERVER_PORT: 8090
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service:8761/eureka/
+  discovery-service:
+    image: getting-things-done/eureka/discovery-service
+    mem_limit: 256m
+    ports:
+      - "127.0.0.1:8761:8761"
+    environment:
+      eureka.instance.hostname: discovery-service

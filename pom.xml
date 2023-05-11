@@ -48,6 +48,7 @@
     </dependencyManagement>
 
     <modules>
+        <module>gtd-discovery-service</module>
         <module>gtd-events</module>
         <module>gtd-command-service</module>
         <module>gtd-query-service</module>

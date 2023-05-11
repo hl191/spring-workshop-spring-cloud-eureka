@@ -59,3 +59,8 @@ springdoc:
   api-docs.path: /openapi/v3/api-docs
   packagesToScan: workshop.spring.gtd.api
   pathsToMatch: /**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
